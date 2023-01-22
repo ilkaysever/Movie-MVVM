@@ -1,0 +1,48 @@
+PODS:
+  - Alamofire (5.6.4)
+  - IQKeyboardManager (6.5.10)
+  - KeychainSwift (20.0.0)
+  - Kingfisher (7.4.1)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
+  - PanModal (1.2.7)
+  - SwiftMessages (9.0.6):
+    - SwiftMessages/App (= 9.0.6)
+  - SwiftMessages/App (9.0.6)
+  - UPCarouselFlowLayout (1.1.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - IQKeyboardManager
+  - KeychainSwift
+  - Kingfisher
+  - NVActivityIndicatorView
+  - PanModal
+  - SwiftMessages
+  - UPCarouselFlowLayout
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IQKeyboardManager
+    - KeychainSwift
+    - Kingfisher
+    - NVActivityIndicatorView
+    - PanModal
+    - SwiftMessages
+    - UPCarouselFlowLayout
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
+  KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
+  Kingfisher: cd762a593a61b2fbecf7645c00f9a801a3ebfc9c
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
+  SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
+  UPCarouselFlowLayout: 4c7d2c43a10ebb1597bde502a53699d378341dad
+
+PODFILE CHECKSUM: f609c90f4161dfc34f2eb7d889096518b0847647
+
+COCOAPODS: 1.11.3
