@@ -17,6 +17,7 @@
 		6BA46D12297DC14700D3844A /* CellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA46D11297DC14700D3844A /* CellHelper.swift */; };
 		6BA46D18297DC34800D3844A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA46D17297DC34800D3844A /* NetworkManager.swift */; };
 		6BA46D1A297DC3A600D3844A /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA46D19297DC3A600D3844A /* NetworkHelper.swift */; };
+		6BA46D1C297DDDEF00D3844A /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA46D1B297DDDEF00D3844A /* MovieModel.swift */; };
 		BA7864BCF94D2903D2B77F1B /* Pods_Movie_MVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5475338742EEEEDA6E9069A6 /* Pods_Movie_MVVM.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		6BA46D11297DC14700D3844A /* CellHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellHelper.swift; sourceTree = "<group>"; };
 		6BA46D17297DC34800D3844A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		6BA46D19297DC3A600D3844A /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		6BA46D1B297DDDEF00D3844A /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		6BA46D0B297DC0AA00D3844A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6BA46D1B297DDDEF00D3844A /* MovieModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				6BA46D18297DC34800D3844A /* NetworkManager.swift in Sources */,
 				6BA46CFD297DB9B400D3844A /* Movie_MVVM.xcdatamodeld in Sources */,
 				6BA46D12297DC14700D3844A /* CellHelper.swift in Sources */,
+				6BA46D1C297DDDEF00D3844A /* MovieModel.swift in Sources */,
 				6BA46CF7297DB9B400D3844A /* ViewController.swift in Sources */,
 				6BA46CF3297DB9B400D3844A /* AppDelegate.swift in Sources */,
 				6BA46CF5297DB9B400D3844A /* SceneDelegate.swift in Sources */,
