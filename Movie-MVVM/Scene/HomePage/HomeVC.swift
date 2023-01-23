@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  HomeVC.swift
 //  Movie-MVVM
 //
 //  Created by İlkay Sever on 22.01.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class HomeVC: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,6 +31,11 @@ class HomeViewController: BaseViewController {
         }
     }
     
+    private func openDetail() {
+        let vc = MovieDetailVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     private func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -38,7 +43,7 @@ class HomeViewController: BaseViewController {
 
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 40
@@ -47,6 +52,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        openDetail()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
