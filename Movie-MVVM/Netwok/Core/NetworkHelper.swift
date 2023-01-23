@@ -17,7 +17,7 @@ import Foundation
 enum ErrorType: String, Error {
     case invalidData = "Invalid Data"
     case invalidURL = "Inlavid Url"
-    case generalError = "An error happened"
+    case unknownError = "An error unknown"
 }
 
 class NetworkHelper {
