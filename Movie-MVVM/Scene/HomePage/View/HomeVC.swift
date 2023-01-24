@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeVC: BaseViewController {
+final class HomeVC: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,18 +27,21 @@ class HomeVC: BaseViewController {
     private func fetchLatestMovies() {
         viewModel.fetchLatestMovies()
         viewModel.didSuccess = {
-            
+            self.tableView.reloadData()
         }
     }
     
-    private func openDetail() {
+    private func openDetail(movieID: Int?) {
         let vc = MovieDetailVC()
+        vc.movieID = movieID
         navigationController?.pushViewController(vc, animated: true)
     }
     
     private func configureTableView() {
+        tableView.backgroundColor = AppColors.backgroundColor
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(MovieListCell.self)
     }
 
 }
@@ -46,20 +49,21 @@ class HomeVC: BaseViewController {
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 40
+        return viewModel.movieItem?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MovieListCell.self), for: indexPath) as? MovieListCell else { return UITableViewCell() }
+        cell.configureMovieListCell(model: viewModel.movieItem?[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        openDetail()
+        openDetail(movieID: viewModel.movieItem?[indexPath.row].movieID)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UITableView.automaticDimension
     }
     
 }

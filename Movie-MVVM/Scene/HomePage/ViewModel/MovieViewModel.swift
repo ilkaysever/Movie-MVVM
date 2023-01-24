@@ -25,7 +25,6 @@ final class MovieViewModel: MovieViewModelProtocol {
             self.movieData = data
             self.movieItem = data?.results
             self.didSuccess()
-            debugPrint(self.movieItem)
         }
     }
     

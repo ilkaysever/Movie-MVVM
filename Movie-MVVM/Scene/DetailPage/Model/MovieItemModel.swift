@@ -1,33 +1,11 @@
 //
-//  MovieResponseModel.swift
+//  MovieItemModel.swift
 //  Movie-MVVM
 //
-//  Created by İlkay Sever on 23.01.2023.
+//  Created by İlkay Sever on 25.01.2023.
 //
 
-
 import Foundation
-
-struct MovieResponseModel: Codable {
-    var dates: Dates?
-    var page: Int?
-    var results: [MovieItem]?
-    var totalPages: Int?
-    var totalResults: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case dates
-        case page
-        case results
-        case totalPages = "total_pages"
-        case totalResults = "total_results"
-    }
-}
-
-struct Dates: Codable {
-    var maximum: String?
-        var minimum: String?
-}
 
 struct MovieItem: Codable {
     var adult: Bool?
@@ -39,7 +17,7 @@ struct MovieItem: Codable {
     var posterPath: String?
     var releaseDate: String?
     var voteAverage: Double?
-
+    
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"

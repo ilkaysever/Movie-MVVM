@@ -23,6 +23,9 @@ enum ErrorType: String, Error {
 class NetworkHelper {
     
     static let shared = NetworkHelper()
+    
     let baseURL = "https://api.themoviedb.org/3"
+    let imgBaseURL = "https://image.tmdb.org/t/p/w500"
+    
     
 }
