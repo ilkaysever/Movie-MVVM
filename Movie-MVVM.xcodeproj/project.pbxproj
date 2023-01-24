@@ -135,9 +135,8 @@
 		6B8BC78929809A0A0073B3DC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6B8BC79129809D7B0073B3DC /* Cells */,
 				6BA46CF6297DB9B400D3844A /* HomeVC.swift */,
-				6B8BC77E298082D00073B3DC /* MovieListCell.xib */,
-				6B8BC77D298082D00073B3DC /* MovieListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +182,15 @@
 				6B8BC78C29809A9F0073B3DC /* MovieItemModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		6B8BC79129809D7B0073B3DC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6B8BC77E298082D00073B3DC /* MovieListCell.xib */,
+				6B8BC77D298082D00073B3DC /* MovieListCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		6BA46CE6297DB9B400D3844A = {
