@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieListCell: UITableViewCell, ReusableView, NibLoadableView {
+final class MovieListCell: UITableViewCell, ReusableView, NibLoadableView {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var movieImgView: UIImageView!
@@ -25,7 +25,7 @@ class MovieListCell: UITableViewCell, ReusableView, NibLoadableView {
               let desc = model?.overview,
               let voteAverage = model?.voteAverage,
               let posterPath = model?.posterPath else { return }
-        let imgUrl = NetworkHelper.shared.imgBaseURL + posterPath
+        let imgUrl = Constants.imgBaseURL + posterPath
 
         titleLabel.text = title
         descLabel.text = desc

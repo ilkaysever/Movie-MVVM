@@ -11,7 +11,8 @@ struct MovieItem: Codable {
     var adult: Bool?
     var backdropPath: String?
     var genreIDS: [Int]?
-    var movieID: Int?
+    var name: String?
+    var id: Int?
     var originalTitle: String?
     var overview: String?
     var posterPath: String?
@@ -22,7 +23,8 @@ struct MovieItem: Codable {
         case adult
         case backdropPath = "backdrop_path"
         case genreIDS = "genre_ids"
-        case movieID = "id"
+        case id = "id"
+        case name
         case originalTitle = "original_title"
         case overview
         case posterPath = "poster_path"

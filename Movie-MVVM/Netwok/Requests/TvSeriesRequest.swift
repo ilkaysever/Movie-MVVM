@@ -1,18 +1,18 @@
 //
-//  MovieRequests.swift
+//  TvSeriesRequest.swift
 //  Movie-MVVM
 //
-//  Created by İlkay Sever on 23.01.2023.
+//  Created by İlkay Sever on 26.01.2023.
 //
 
 import Foundation
 
-class MovieRequests {
+class TvSeriesRequest {
     
-    static let shared = MovieRequests()
+    static let shared = TvSeriesRequest()
     
-    func requestLatestMovie(completion: @escaping (MovieResponseModel?) -> ()) {
-        guard let url = URL(string: "\(Constants.BASE_URL)/movie/popular?api_key=\(Constants.API_KEY)&language=en-US&page=1") else { return }
+    func requestTvSeries(completion: @escaping (MovieResponseModel?) -> ()) {
+        guard let url = URL(string: "\(Constants.BASE_URL)/tv/popular?api_key=\(Constants.API_KEY)&language=en-US&page=1") else { return }
         NetworkManager.shared.request(type: MovieResponseModel.self, url: url, method: .get) { [weak self] response in
             guard let self = self else { return }
             switch response {
@@ -24,22 +24,22 @@ class MovieRequests {
         }
     }
     
-    func requestMovieDetail(id: Int, completion: @escaping (MovieItem?) -> ()) {
-        guard let url = URL(string: "\(Constants.BASE_URL)/movie/\(id)?api_key=\(Constants.API_KEY)&language=en-US") else { return }
+    func requestTopRatedTvSeries(completion: @escaping (MovieResponseModel?) -> ()) {
+        guard let url = URL(string: "\(Constants.BASE_URL)/tv/top_rated?api_key=\(Constants.API_KEY)&language=en-US&page=1") else { return }
+        NetworkManager.shared.request(type: MovieResponseModel.self, url: url, method: .get) { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(let data):
+                completion(data)
+            case .failure(let error):
+                self.handleWithError(error)
+            }
+        }
+    }
+    
+    func requestSeriesDetail(id: Int, completion: @escaping (MovieItem?) -> ()) {
+        guard let url = URL(string: "\(Constants.BASE_URL)/tv/\(id)?api_key=\(Constants.API_KEY)&language=en-US") else { return }
         NetworkManager.shared.request(type: MovieItem.self, url: url, method: .get) { [weak self] response in
-            guard let self = self else { return }
-            switch response {
-            case .success(let data):
-                completion(data)
-            case .failure(let error):
-                self.handleWithError(error)
-            }
-        }
-    }
-    
-    func requestMultiSearch(query: String, completion: @escaping (MovieResponseModel?) -> ()) {
-        guard let url = URL(string: "\(Constants.BASE_URL)/search/multi?api_key=\(Constants.API_KEY)&language=en-US&query=\(query)") else { return }
-        NetworkManager.shared.request(type: MovieResponseModel.self, url: url, method: .get) { [weak self] response in
             guard let self = self else { return }
             switch response {
             case .success(let data):

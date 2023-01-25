@@ -28,4 +28,13 @@ final class MovieViewModel: MovieViewModelProtocol {
         }
     }
     
+    func fetchSeriesDetail() {
+        MovieRequests.shared.requestLatestMovie { [weak self] data in
+            guard let self = self else { return }
+            self.movieData = data
+            self.movieItem = data?.results
+            self.didSuccess()
+        }
+    }
+    
 }

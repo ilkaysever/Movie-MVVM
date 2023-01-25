@@ -31,9 +31,10 @@ final class HomeVC: BaseViewController {
         }
     }
     
-    private func openDetail(movieID: Int?) {
+    private func openDetail(id: Int?) {
         let vc = MovieDetailVC()
-        vc.movieID = movieID
+        vc.identifier = id
+        vc.viewType = .movie
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -59,7 +60,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        openDetail(movieID: viewModel.movieItem?[indexPath.row].movieID)
+        openDetail(id: viewModel.movieItem?[indexPath.row].id)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -7,8 +7,13 @@
 
 import UIKit
 
-final class MovieDetailVC: BaseViewController {
+enum ViewType {
+    case movie
+    case series
+}
 
+final class MovieDetailVC: BaseViewController {
+    
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var bottomView: UIView!
@@ -17,32 +22,56 @@ final class MovieDetailVC: BaseViewController {
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var footerView: UIView!
     
-    let viewModel = MovieDetailViewModel()
-    var movieID: Int?
+    let viewModel = DetailViewModel()
+    var identifier: Int?
+    var viewType: ViewType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        fetchLatestMovies()
-        
+        setupBinding()
     }
     
-    private func fetchLatestMovies() {
-        viewModel.requestMovieDetail(id: movieID)
+    private func setupBinding() {
+        DispatchQueue.main.async {
+            switch self.viewType {
+            case .movie:
+                self.fetchMoviesDetail()
+            case .series:
+                self.fetchSeriesDetail()
+            default:
+                break
+            }
+        }
+    }
+    
+    private func fetchMoviesDetail() {
+        viewModel.requestMovieDetail(id: identifier)
         viewModel.didSuccess = {
-            let model = self.viewModel.movieItem
-            guard let title = model?.originalTitle,
-                  let desc = model?.overview,
-                  let releaseDate = model?.releaseDate,
-                  let posterPath = model?.backdropPath else { return }
-            let imgUrl = NetworkHelper.shared.imgBaseURL + posterPath
+            guard let model = self.viewModel.modelItem else { return }
+            let imgUrl = Constants.imgBaseURL + (model.backdropPath ?? "")
             
             self.posterView.setImageUrl(imageUrl: imgUrl)
-            self.titleLabel.text = title
-            self.releaselabel.text = releaseDate
-            self.descLabel.text = desc
+            self.titleLabel.text = model.originalTitle
+            self.releaselabel.text = model.releaseDate
+            self.descLabel.text = model.overview
             
-            self.navigationTitle(title: self.viewModel.movieItem?.originalTitle)
+            self.navigationTitle(title: self.viewModel.modelItem?.originalTitle)
+        }
+    }
+    
+    private func fetchSeriesDetail() {
+        viewModel.requestSeriesDetail(id: identifier)
+        viewModel.didSuccess = {
+            guard let model = self.viewModel.modelItem else { return }
+            let imgUrl = Constants.imgBaseURL + (model.backdropPath ?? "")
+            
+            self.posterView.setImageUrl(imageUrl: imgUrl)
+            self.titleLabel.text = model.name
+            self.releaselabel.text = model.releaseDate
+            self.descLabel.text = model.overview
+            
+            self.navigationTitle(title: self.viewModel.modelItem?.name)
         }
     }
     
@@ -51,5 +80,5 @@ final class MovieDetailVC: BaseViewController {
         bottomView.backgroundColor = AppColors.tabBarColor
         footerView.backgroundColor = AppColors.backgroundColor
     }
-
+    
 }
