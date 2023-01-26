@@ -21,14 +21,12 @@ final class MovieListCell: UITableViewCell, ReusableView, NibLoadableView {
     }
     
     func configureMovieListCell(model: MovieItem?) {
-        guard let title = model?.originalTitle,
-              let desc = model?.overview,
-              let voteAverage = model?.voteAverage,
-              let posterPath = model?.posterPath else { return }
-        let imgUrl = Constants.imgBaseURL + posterPath
+        guard let model = model else { return }
+        let imgUrl = Constants.imgBaseURL + (model.posterPath ?? "")
+        let voteAverage = model.voteAverage ?? 0.0
 
-        titleLabel.text = title
-        descLabel.text = desc
+        titleLabel.text = model.originalTitle
+        descLabel.text = model.overview
         averageLabel.text = "IMDB" + " " + "\(voteAverage)"
         movieImgView.setImageUrl(imageUrl: imgUrl)
     }

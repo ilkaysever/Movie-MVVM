@@ -5,7 +5,6 @@
 //  Created by İlkay Sever on 23.01.2023.
 //
 
-import Foundation
 import UIKit
 
 struct AppUtilities {

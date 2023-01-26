@@ -37,8 +37,8 @@ class MovieRequests {
         }
     }
     
-    func requestMultiSearch(query: String, completion: @escaping (MovieResponseModel?) -> ()) {
-        guard let url = URL(string: "\(Constants.BASE_URL)/search/multi?api_key=\(Constants.API_KEY)&language=en-US&query=\(query)") else { return }
+    func requestSeriesSearch(query: String, completion: @escaping (MovieResponseModel?) -> ()) {
+        guard let url = URL(string: "\(Constants.BASE_URL)/search/tv?api_key=\(Constants.API_KEY)&language=en-US&query=\(query)") else { return }
         NetworkManager.shared.request(type: MovieResponseModel.self, url: url, method: .get) { [weak self] response in
             guard let self = self else { return }
             switch response {

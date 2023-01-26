@@ -9,6 +9,7 @@ import Foundation
 
 protocol MovieViewModelProtocol: AnyObject {
     func fetchLatestMovies()
+    func fetchSeriesDetail()
 }
 
 final class MovieViewModel: MovieViewModelProtocol {

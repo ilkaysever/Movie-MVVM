@@ -9,6 +9,8 @@ import Foundation
 
 protocol SearchViewModelProtocol: AnyObject {
     func fetchSearch(query: String)
+    func requestTvSeries()
+    func requestTopRatedTvSeries()
 }
 
 final class SearchViewModel: SearchViewModelProtocol {
@@ -25,7 +27,7 @@ final class SearchViewModel: SearchViewModelProtocol {
     var ratedItem: [MovieItem]?
     
     func fetchSearch(query: String) {
-        MovieRequests.shared.requestMultiSearch(query: query) { [weak self] data in
+        MovieRequests.shared.requestSeriesSearch(query: query) { [weak self] data in
             guard let self = self else { return }
             self.searchData = data
             self.didSuccess()

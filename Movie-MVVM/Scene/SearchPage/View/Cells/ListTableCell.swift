@@ -51,7 +51,7 @@ final class ListTableCell: UITableViewCell, ReusableView, NibLoadableView {
         case .series:
             titleLabel.text = "Popüler Diziler"
         case .topRated:
-            titleLabel.text = "Popüler Filmler"
+            titleLabel.text = "IMDB Top 250 Diziler"
         default:
             break
         }
