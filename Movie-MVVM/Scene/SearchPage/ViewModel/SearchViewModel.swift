@@ -37,9 +37,13 @@ final class SearchViewModel: SearchViewModelProtocol {
     func requestTvSeries() {
         TvSeriesRequest.shared.requestTvSeries { [weak self] data in
             guard let self = self else { return }
-            self.seriesData = data
-            self.seriesItem = data?.results
-            self.didSuccess()
+            if let data = data, let results = data.results {
+                self.seriesData = data
+                self.seriesItem = results
+                self.didSuccess()
+            } else {
+                self.didFailure(ErrorType.invalidData.rawValue)
+            }
         }
     }
     

@@ -49,6 +49,9 @@ final class SearchVC: BaseViewController {
         viewModel.didSuccess = {
             self.tableView.reloadData()
         }
+        viewModel.didFailure = { error in
+            debugPrint(error)
+        }
     }
     
     private func fetchTopRatedTvSeries() {
