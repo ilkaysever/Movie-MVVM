@@ -9,7 +9,8 @@ I tried to develop this application by adhering to the following items.
 - Tableview
 - CustomTableViewCell
 - Netrowk Manager
-- BaseNavigationController
+- Base Navigation Controller
+- Base Tabbar Controller
 - Alamofire
 - Kingfisher
 - CustomCollectionCell
