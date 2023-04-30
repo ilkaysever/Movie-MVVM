@@ -35,6 +35,7 @@ final class SearchVC: BaseViewController {
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
+        searchController.searchBar.tintColor = .white
     }
     
     private func setupBinding() {
@@ -156,16 +157,19 @@ extension SearchVC: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension SearchVC: UISearchResultsUpdating, UISearchBarDelegate {
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        debugPrint(text)
         query = text
         requestSearch(query: query ?? "")
     }
+    
 }
 
 extension SearchVC: ListTableCellDelegate {
+    
     func didTappedDetail(id: Int) {
         openDetail(id: id)
     }
+    
 }
