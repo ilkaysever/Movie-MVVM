@@ -50,9 +50,13 @@ final class SearchViewModel: SearchViewModelProtocol {
     func requestTopRatedTvSeries() {
         TvSeriesRequest.shared.requestTopRatedTvSeries { [weak self] data in
             guard let self = self else { return }
-            self.ratedData = data
-            self.ratedItem = data?.results
-            self.didSuccess()
+            if let data = data, let results = data.results  {
+                self.ratedData = data
+                self.ratedItem = data.results
+                self.didSuccess()
+            } else {
+                self.didFailure(ErrorType.invalidURL.rawValue)
+            }
         }
     }
     

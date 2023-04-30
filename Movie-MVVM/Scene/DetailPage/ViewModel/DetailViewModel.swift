@@ -29,8 +29,12 @@ final class DetailViewModel: DetailViewModelProtocol {
     func requestSeriesDetail(id: Int?) {
         TvSeriesRequest.shared.requestSeriesDetail(id: id ?? 0) { [weak self] data in
             guard let self = self else { return }
-            self.modelItem = data
-            self.didSuccess()
+            if let data = data  {
+                self.modelItem = data
+                self.didSuccess()
+            } else {
+                self.didFailure(ErrorType.invalidURL.rawValue)
+            }
         }
     }
     

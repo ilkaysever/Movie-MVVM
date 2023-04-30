@@ -27,7 +27,7 @@ class BaseNavigationController: UINavigationController {
             appearance.titleTextAttributes = titleStyle
             appearance.shadowColor = .clear
             appearance.backgroundColor = AppColors.backgroundColor
-            appearance.setBackIndicatorImage(UIImage(named: "back_icon"), transitionMaskImage: UIImage(named: "back_icon"))
+            appearance.setBackIndicatorImage(UIImage(systemName: "chevron.back"), transitionMaskImage: UIImage(systemName: "chevron.back"))
             UINavigationBar.appearance().tintColor = .white
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().compactAppearance = appearance

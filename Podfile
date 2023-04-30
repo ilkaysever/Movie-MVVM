@@ -12,7 +12,6 @@ target 'Movie-MVVM' do
   pod 'NVActivityIndicatorView'
   pod 'KeychainSwift'
   pod 'PanModal'
-  pod 'UPCarouselFlowLayout'
   pod 'SwiftMessages'
 
 end
