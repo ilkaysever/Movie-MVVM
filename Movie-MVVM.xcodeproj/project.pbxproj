@@ -281,6 +281,7 @@
 		6BA46CF1297DB9B400D3844A /* Movie-MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				6BC2CD582AAB56C5005F5329 /* Application */,
 				6BA46D0A297DC09A00D3844A /* Netwok */,
 				6BA46D0E297DC0F900D3844A /* Scene */,
 				6BA46D0C297DC0C700D3844A /* Helpers */,
@@ -296,8 +297,6 @@
 		6BA46D09297DC07800D3844A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				6BA46CF2297DB9B400D3844A /* AppDelegate.swift */,
-				6BA46CF4297DB9B400D3844A /* SceneDelegate.swift */,
 				6BA46D2C297E16DB00D3844A /* AppColors.swift */,
 				6BA46D24297E07EC00D3844A /* AppUtilities.swift */,
 			);
@@ -402,6 +401,15 @@
 				6B8BC7A12981D3A70073B3DC /* TvSeriesRequest.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		6BC2CD582AAB56C5005F5329 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6BA46CF2297DB9B400D3844A /* AppDelegate.swift */,
+				6BA46CF4297DB9B400D3844A /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		8483D7B86FD1AE79412AFED7 /* Frameworks */ = {

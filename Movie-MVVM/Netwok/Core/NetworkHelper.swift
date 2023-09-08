@@ -23,4 +23,6 @@ class NetworkHelper {
     
     static let shared = NetworkHelper()
     
+    private init() {}
+    
 }

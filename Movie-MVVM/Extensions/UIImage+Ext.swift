@@ -18,14 +18,5 @@ extension UIImageView {
             self.image = UIImage(named: "")
         }
     }
-    
-//    func setCircleImage() {
-//        self.layer.borderWidth = 1
-//        self.contentMode = .scaleAspectFill
-//        self.layer.masksToBounds = false
-//        self.layer.borderColor = AppColors.overlayDark.cgColor
-//        self.layer.cornerRadius = self.frame.size.height / 2
-//        self.clipsToBounds = true
-//    }
 
 }
